@@ -7,7 +7,6 @@ import Copyright from '@/components/Copyright';
 
 const getItemsFromAPI = async (): Promise<any[]> => {
   const  { accessToken } = await getAccessToken();
-  console.log(accessToken, "Access token");
   const response = await fetch('https://express-ts-mongoose.onrender.com/trips', {
     method: 'GET',
     headers: {
@@ -15,8 +14,7 @@ const getItemsFromAPI = async (): Promise<any[]> => {
     },
   });
   const items = await response.json();
-  console.log(items, "ITEM$$$$$$$$$$$");
-  return [];
+  return items;
 }
 
 async function Dashboard() {
