@@ -4,10 +4,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import NextLink from "next/link";
-import ProTip from "@/components/ProTip";
 import Copyright from "@/components/Copyright";
-import { ThemeToggle } from "@/components/ThemeToggle/ThemeToggle";
-import { useUser } from "@auth0/nextjs-auth0/client";
 import { getSession } from "@auth0/nextjs-auth0";
 import { redirect } from "next/navigation";
 
@@ -20,10 +17,6 @@ export default async function Home() {
 
   return (
     <Container maxWidth="lg">
-      <Box display="flex" justifyContent="space-between">
-        <ThemeToggle></ThemeToggle>
-        <a href="/api/auth/login">Log In</a>
-      </Box>
       <Box
         sx={{
           my: 4,
@@ -31,15 +24,15 @@ export default async function Home() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          gap: 2
         }}
       >
         <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
-          Material UI - Next.js App Router example in TypeScript
+          Welcome !!!
         </Typography>
-        <Link href="/about" color="secondary" component={NextLink}>
-          Go to the about page
+        <Link href="/dashboard" color="secondary" component={NextLink}>
+          Login to visit the dashboard page
         </Link>
-        <ProTip />
         <Copyright />
       </Box>
     </Container>

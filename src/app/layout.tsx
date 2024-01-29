@@ -9,6 +9,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import getTheme from '@/theme'
 import { ThemeToggleContext } from '@/components/ThemeToggle/ThemeToggleContext'
 import { PaletteMode } from '@mui/material'
+import Appbar from '@/components/Appbar/Appbar'
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   const [mode, setMode] = React.useState<PaletteMode>('light')
@@ -32,6 +33,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
             <ThemeToggleContext.Provider value={paletteMode}>
               <ThemeProvider theme={theme}>
                 <CssBaseline />
+                <Appbar />
                 {props.children}
               </ThemeProvider>
             </ThemeToggleContext.Provider>
