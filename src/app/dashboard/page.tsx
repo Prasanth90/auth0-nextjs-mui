@@ -1,25 +1,13 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
 
-import { getAccessToken, getSession } from '@auth0/nextjs-auth0'
-import { Container, Link, Typography } from '@mui/material';
+import { getSession } from '@auth0/nextjs-auth0'
+import { Container, Typography } from '@mui/material';
 import Copyright from '@/components/Copyright';
-
-const getItemsFromAPI = async (): Promise<any[]> => {
-  const  { accessToken } = await getAccessToken();
-  const response = await fetch('https://express-ts-mongoose.onrender.com/trips', {
-    method: 'GET',
-    headers: {
-      authorization: `Bearer ${accessToken}`,
-    },
-  });
-  const items = await response.json();
-  return items;
-}
 
 async function Dashboard() {
   const session = await getSession();
-  const items = await getItemsFromAPI();
+  const items: any[] = [];
 
   return (
      <Container maxWidth="lg">
